@@ -1,0 +1,17 @@
+BUNDLE_ROOT=${BUNDLE_ROOT:=~/.bash/bundle/shellbundler}
+
+source $BUNDLE_ROOT/lib/help.sh
+source $BUNDLE_ROOT/lib/helpers.sh
+
+if [ $# == "0" ]; then
+  shbundler_help
+
+elif [ $1 == "install" ]; then
+  status "Not implemented yet."
+
+elif [ $1 == "update" ]; then
+  status "Not implemented yet."
+
+else
+  shbundler_help
+fi

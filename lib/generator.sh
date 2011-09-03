@@ -43,6 +43,13 @@ shbundler_load() { # (bundle)
   shbundler_add_path "$1/bin/$OSENV" "$1"
   source_dir "$1/autoload" "$1"
   [ -n "$OSENV" ] && source_dir "$1/autoload/$OSENV" "$1"
+  shbundler_add_man "$1/man"
+}
+
+shbundler_add_man() { # (path)
+  if [ -d "$1" ]; then
+    echo "export MANPATH=\"\$MANPATH:$1\""
+  fi
 }
 
 # Adds a given path to $PATH. Also works for bundles by setting $BUNDLE_ROOT.

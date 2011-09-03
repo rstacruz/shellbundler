@@ -30,7 +30,7 @@ source "$SHBUNDLER_ROOT/lib/helpers.sh"
 source "$SHBUNDLER_ROOT/lib/functions.sh"
 
 # More variables (these rely on those functions.)
-[ -z "$OSENV" ]                 && OSENV="`shbundler_osdetect`"
+[ -z "$OSENV" ]                 && export OSENV="`shbundler_osdetect`"
 
 # Let's get it started!
 shbundler_init $SHBUNDLER_HOME

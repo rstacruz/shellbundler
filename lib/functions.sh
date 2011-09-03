@@ -13,14 +13,14 @@ shbundler_rc() { # (path)
 }
 
 # Initializes the RTP.
-shbundler_init() { # (path)
+shbundler_init() { # (SHBUNDLER_HOME)
   log "Initializing the runtime path $1..." 33
 
   local file="$SHBUNDLER_CACHE_PATH/init.sh"
 
   if [ ! -r $file ]; then
     source "$SHBUNDLER_ROOT/lib/generator.sh"
-    shbundler_generate_init "$1" "$file"
+    shbundler_generate_init "$1"
   fi
 
   source $file

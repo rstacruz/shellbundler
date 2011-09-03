@@ -8,6 +8,12 @@ if [ "$1" == "version" ] ||\
    [ "$1" == "--version" ]; then
   echo "ShellBundler v`shbundler_version`"
 
+elif [ "$1" == "reload" ]; then
+  source "$BUNDLE_ROOT/lib/generator.sh"
+  shbundler_clear_cache
+  shbundler_generate_init $SHBUNDLER_HOME
+  status "Done."
+
 elif [ "$1" == "install" ]; then
   status "Not implemented yet."
 

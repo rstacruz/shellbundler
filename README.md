@@ -4,6 +4,11 @@
 ShellBundler keeps your bash setup clean by letting you keep all your bash 
 packages in `~/.bash/bundle`.
 
+Requirements
+------------
+
+You need Bash (or regular sh), and Git.
+
 Install it
 ----------
 
@@ -59,5 +64,3 @@ ShellBundler will eventually have:
 
  * `shbundle update` which will update your bundles to the latest version.
 
- * Theoretically, it should also work for *sh* and *zsh* but I haven't tested 
- it.

@@ -1,7 +1,10 @@
 
 test_setup() {
   TEST_RESULT=0
-  TEST_PATH="/tmp/lol.$$"
+  TEST_PATH="/tmp/shellbundler.$$"
+
+  SHBUNDLER_CACHE_PATH="/tmp/shellbundler.$$.cache"
+
   mkdir -p "$TEST_PATH"
   mkdir -p "$TEST_PATH/bundle"
   mkdir -p "$TEST_PATH/autoload"

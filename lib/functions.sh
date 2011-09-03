@@ -25,6 +25,7 @@ shbundler_rc() { # (path)
     return 1
   fi
 
+  log "Initializing $bash_home" 30
   shbundler_init "$bash_home"
   shbundler_load_all
 }
@@ -56,8 +57,10 @@ shbundler_ensure_not_loaded() { # (bundle)
 source_dir() { # (path, root)
   if [ -d "$1" ]; then
     for i in $1/*.sh; do
-      log "    source > $i" 34
-      BUNDLE_ROOT="$2" source $i
+      if [ -r "$i" ]; then
+        log "    source > $i" 34
+        BUNDLE_ROOT="$2" source $i
+      fi
     done
   fi
 }

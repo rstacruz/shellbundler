@@ -11,17 +11,7 @@ shbundler_osdetect() {
 shbundler_add_path() { # (path, bundle_home)
   if [ -d "$1" ]; then
     log "      path + $1" 33
-
-    # Add it to the path.
     PATH="$1:$PATH"
-
-    if [ -n "$2" ]; then
-      # Make an alias for it that, when invoked, sets BUNDLE_ROOT.
-      for i in $1/*; do
-        local base="`basename $i`"
-        alias $base="env BUNDLE_ROOT=\"$i\" $i" #"
-      done
-    fi
   fi
 } 
 
@@ -63,11 +53,11 @@ shbundler_ensure_not_loaded() { # (bundle)
 }
 
 # Loads all shell files in a given directory.
-source_dir() { # (path)
+source_dir() { # (path, root)
   if [ -d "$1" ]; then
     for i in $1/*.sh; do
       log "    source > $i" 34
-      source $i
+      BUNDLE_ROOT="$2" source $i
     done
   fi
 }
@@ -83,7 +73,7 @@ shbundler_load() { # (bundle)
   # Add the bin to the path, and load the autoloaded files.
   shbundler_add_path "$1/bin" "$1"
   shbundler_add_path "$1/bin/$OSENV" "$1"
-  source_dir "$1/autoload"
-  source_dir "$1/autoload/$OSENV"
+  source_dir "$1/autoload" "$1"
+  source_dir "$1/autoload/$OSENV" "$1"
 }
 

@@ -1,17 +1,20 @@
+#!/usr/bin/env sh
 BUNDLE_ROOT=${BUNDLE_ROOT:=~/.bash/bundle/shellbundler}
 
-source $BUNDLE_ROOT/lib/help.sh
-source $BUNDLE_ROOT/lib/helpers.sh
+source "$BUNDLE_ROOT/lib/helpers.sh"
 
-if [ $# == "0" ]; then
-  shbundler_help
+if [ "$1" == "version" ] ||\
+   [ "$1" == "-v" ] ||\
+   [ "$1" == "--version" ]; then
+  echo "ShellBundler v`shbundler_version`"
 
-elif [ $1 == "install" ]; then
+elif [ "$1" == "install" ]; then
   status "Not implemented yet."
 
-elif [ $1 == "update" ]; then
+elif [ "$1" == "update" ]; then
   status "Not implemented yet."
 
 else
+  source "$BUNDLE_ROOT/lib/cli-help.sh"
   shbundler_help
 fi

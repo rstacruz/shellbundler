@@ -49,7 +49,7 @@ shbundler_load() { # (bundle)
 shbundler_add_path() { # (path, bundle_home)
   if [ -d "$1" ]; then
     echo "log \"        path + $1\" 33"
-    echo "PATH=\"$1:\$PATH\""
+    echo "PATH=\"\$PATH:$1\""
   fi
 } 
 

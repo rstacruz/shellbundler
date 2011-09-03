@@ -59,8 +59,8 @@ To do
 
 ShellBundler will eventually have:
 
- * `shbundle install` which will install packages you specify in your bash 
+ * `sbundle install` which will install packages you specify in your bash 
  profile.
 
- * `shbundle update` which will update your bundles to the latest version.
+ * `sbundle update` which will update your bundles to the latest version.
 

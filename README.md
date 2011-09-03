@@ -43,6 +43,12 @@ Use it
    * Put your bundles in `~/.bash/bundle/bundle_name_here`. They will all be 
    loaded. A bundle has `./bin` and `./autoload` dirs just like above.
 
+Adding bundles
+--------------
+
+   * Put your bundles in `~/.bash/bundle/bundle_name_here`.
+   * Type `sbundle reload`.
+
 Acknowledgements
 ----------------
 

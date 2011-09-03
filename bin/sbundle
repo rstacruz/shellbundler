@@ -10,6 +10,8 @@ if [ "$1" == "version" ] ||\
 
 elif [ "$1" == "reload" ]; then
   source "$BUNDLE_ROOT/lib/generator.sh"
+  status "Checking for new bundles..."
+  for i in $SHBUNDLER_HOME/bundle/*; do [ -d "$i" ] && echo "    + `basename $i`/"; done
   shbundler_clear_cache
   shbundler_generate_init $SHBUNDLER_HOME
   status "Done."
